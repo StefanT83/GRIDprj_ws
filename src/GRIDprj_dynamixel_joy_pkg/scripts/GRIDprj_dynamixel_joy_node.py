@@ -6,6 +6,9 @@
 
 # Code inspired from DynamixelSDK/ros/dynamixel_sdk_examples/src/read_write_node.py
 
+# Motor used: Dynamixel XH540-v270 https://emanual.robotis.com/docs/en/dxl/x/xh540-v270/
+
+
 import os
 import rospy
 from dynamixel_sdk import *
