@@ -1,0 +1,17 @@
+[RPi]
+$roscore
+
+[laptop] // start joy
+$rosrun joy joy_node
+
+[RPi]
+// start teleop
+$rosrun scout_bringup bringup_can2usb.bash
+$roslaunch scout_bringup scout_robot_base.launch
+$rosrun GRIDprj_teleop_twist_joy_pkg GRIDprj_teleop_twist_joy_node.py
+
+// start winch
+$osrun GRIDprj_dynamixel_joy_pkg GRIDprj_dynamixel_joy_node.py
+
+// start lights
+rosrun GRIDprj_pirelay_wJoy_pkg GRIDprj_joy_pirelay_node.py

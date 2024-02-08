@@ -1,0 +1,12 @@
+<launch>
+    <!-- SCOUT 2.0 base -->
+    <arg name="node_start_delay" default="1.0" /> 
+
+    <include file="$(find scout_bringup)/scripts/bringup_can2usb.bash">   
+    <include file="$(find scout_bringup)/launch/scout_robot_base.launch"> 
+ 
+    TO-DO: use pause for launch file cf https://answers.ros.org/question/233353/set-delay-between-starting-nodes-within-launch-file/ > 2nd user answer
+    TO-DO: use pause for node cf same link above > 1st user answer
+
+</launch>
+
