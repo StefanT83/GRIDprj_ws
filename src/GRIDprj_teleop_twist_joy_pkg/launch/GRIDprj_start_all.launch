@@ -2,11 +2,30 @@
     <!-- SCOUT 2.0 base -->
     <arg name="node_start_delay" default="1.0" /> 
 
-    <include file="$(find scout_bringup)/scripts/bringup_can2usb.bash">   
-    <include file="$(find scout_bringup)/launch/scout_robot_base.launch"> 
+    <node pkg="scout_bringup" type="bringup_can2usb.bash" name="bringup_can2usb" output="screen">
+    </node>  
+
+    <include file="$(find scout_bringup)/launch/scout_robot_base.launch">
+    </include>
  
+    <node pkg="GRIDprj_teleop_twist_joy_pkg" type="GRIDprj_teleop_twist_joy_node.py" name="GRIDprj_teleop_twist_joy_node" output="screen">
+    </node>
+
+   <!-- Winch system: Dynamixel motor -->
+   <node pkg="GRIDprj_dynamixel_joy_pkg" type="GRIDprj_dynamixel_joy_node.py" name="GRIDprj_dynamixel_joy_node" output="screen">
+    </node>
+ 
+   <!-- Lights: PiRelay6 -->
+   <node pkg="GRIDprj_pirelay_wJoy_pkg" type="GRIDprj_joy_pirelay_node.py" name="GRIDprj_joy_pirelay_node" output="screen">
+    </node>
+
+
+
+<!--    
     TO-DO: use pause for launch file cf https://answers.ros.org/question/233353/set-delay-between-starting-nodes-within-launch-file/ > 2nd user answer
     TO-DO: use pause for node cf same link above > 1st user answer
+-->
+
 
 </launch>
 
